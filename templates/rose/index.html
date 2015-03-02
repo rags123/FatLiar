@@ -1,0 +1,31 @@
+{% extends "rose/base.html" %}
+
+{% block blog_title %}Rose's Blog{% endblock %}
+
+{% block body_block %}
+
+
+	<!-- <h1>Rose says...hello world!</h1> -->
+	<!-- <h1 class="blog-title">Rose's Blog</h1> -->
+
+	{% if posts %}
+	  <ul>
+	  	{% for sub in posts %}
+	  	   <li><a href="/rose/blogpost/{{ sub.url }}">{{ sub.title }}</a></li>
+	  	{% endfor %}
+	  </ul>
+	{% else %}
+	   <strong>No posts at present.</strong>
+	{% endif %}
+
+	<!-- {% if user.is_authenticated %}
+	  <a href="/rose/add_post/">Add post</a><br>
+	  <a href="/rose/logout/">Logout</a><br>
+	{% else %}
+	  <a href="/rose/register/">Sign Up!</a><br>
+	  <a href="/rose/login/">Login</a><br>
+	{% endif %}
+	<a href="/rose/about/">About</a> -->
+	
+
+{% endblock %}

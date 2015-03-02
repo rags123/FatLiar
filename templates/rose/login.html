@@ -1,0 +1,22 @@
+{% extends "rose/base.html" %}
+
+{% block body_block %}
+
+   <form id="login_form" method="post" action="/rose/login/" enctype="multipart/form-data">
+   	 <h2>Log in here</h2>
+   	 {% csrf_token %}
+
+   	 {% if bad_details %}
+		<p><strong>Your username and/or password were incorrect!</strong></p>
+	 {% elif disabled_account %}
+		<p><strong>Your account is currently disabled; we can't log you in!</strong></p>
+	 {% endif %}
+
+		Username: <input type="text" name="username" value="" size="50" />
+		<br />
+		Password: <input type="password" name="password" value="" size="50" />
+		<br />
+		<input type="submit" name="submit" value="Sign in">
+   </form>
+
+{% endblock %}
